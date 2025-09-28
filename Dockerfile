@@ -22,6 +22,7 @@ EXPOSE 3000
 FROM firststage AS finalstage
 RUN npm install --production
 COPY . .
+RUN npm run build
 
 # Start your Node.js server (assuming it serves the React app)
 CMD ["npm", "start"]
