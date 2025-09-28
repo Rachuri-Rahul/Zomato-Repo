@@ -1,5 +1,5 @@
 # Use Node.js 16 slim as the base image
-FROM node:16-slim AS FirstStage
+FROM node:16-slim AS firststage
 
 # Set the working directory
 WORKDIR /app
@@ -19,7 +19,7 @@ RUN npm run build
 # Expose port 3000 (or the port your app is configured to listen on)
 EXPOSE 3000
 
-FROM FirstStage AS FinalStage
+FROM firststage AS finalstage
 RUN npm install --production
 COPY . .
 
